@@ -1,0 +1,31 @@
+# AUS email signature
+
+Open `aus-signature-installer.html` in a browser. Enter only the team member's full name and job title, compare the two versions, then copy the selected version into the mail account's signature settings. All AUS contact information and brand elements are locked for consistency.
+
+- **Version 1 — Compact:** the recommended mobile-first option.
+- **Version 2 — Executive banner:** a wider AUS alternative inspired by the supplied institutional example.
+
+The folder also includes `abbass-mokashar-signature.html`, a finished standalone example based on the details in the previous signature.
+
+## Compatibility choices
+
+- Email-safe table structure with inline styles
+- Web-safe Arial fallback, with no external font dependency
+- Official AUS logo supplied by the team, with a matching public website asset used in outgoing email
+- PNG delivery for broader Outlook compatibility; `aus-logo.png` is included for future hosting on the AUS domain
+- Neutral charcoal, white, and crimson palette with no large blue panel
+- Email-safe contact and social icon markers
+- Fixed-size PNG icons in zero-line-height table cells to reduce Gmail/Outlook spacing differences
+- No JavaScript, SVG, CSS grid/flex, background images, icon fonts, or embedded base64 inside the copied signature
+- Clickable email, phone, website, LinkedIn, and Instagram links
+- 600 px maximum width for desktop and mobile email panes
+
+## Gmail
+
+Settings → See all settings → General → Signature. Create a signature, paste, and save changes. Make sure plain text mode is off when composing.
+
+## Outlook / Hotmail
+
+Settings → Accounts → Signatures. Create or edit a signature, paste, then save.
+
+Always send a test message to both a desktop and a mobile inbox before rolling the signature out to the team.

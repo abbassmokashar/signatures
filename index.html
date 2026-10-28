@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AUS Team Email Signatures</title>
+  <style>
+    :root{color-scheme:light;--navy:#111827;--red:#be1f3d;--ink:#25262a;--muted:#6d7078;--paper:#f3f2ef;--line:#deded9}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}.shell{width:min(1180px,calc(100% - 28px));margin:32px auto}.eyebrow{margin:0 0 7px;color:var(--red);font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}h1{margin:0;color:var(--navy);font-size:31px;letter-spacing:-.03em}.intro{max-width:780px;margin:10px 0 22px;color:var(--muted);font-size:13px;line-height:1.6}.card{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(17,24,39,.06)}.editor{display:grid;grid-template-columns:1fr 1fr auto;gap:14px;align-items:end;padding:18px;margin-bottom:20px}.field label{display:block;margin:0 0 6px;color:var(--navy);font-size:10px;font-weight:800;letter-spacing:.04em}.field input{width:100%;height:40px;border:1px solid #cecec9;border-radius:7px;padding:0 11px;color:var(--ink);font:14px Arial,sans-serif;outline:none}.field input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(190,31,61,.08)}.lock-note{max-width:235px;color:#76777c;font-size:10px;line-height:1.45}.options{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}.option{overflow:hidden}.option-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;padding:16px 18px;border-bottom:1px solid #ecece8}.option-head h2{margin:0;color:var(--navy);font-size:15px}.option-head p{margin:5px 0 0;color:var(--muted);font-size:10px;line-height:1.4}.badge{flex:none;border-radius:20px;background:#f7e9ed;color:var(--red);padding:5px 8px;font-size:8px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.canvas{min-height:420px;padding:30px 18px;background:#fff;overflow:auto}.actions{display:flex;align-items:center;gap:12px;padding:14px 18px;border-top:1px solid #ecece8}.actions button{border:0;border-radius:7px;background:var(--navy);color:#fff;cursor:pointer;padding:11px 16px;font-size:11px;font-weight:800}.actions button:hover{background:#000}.status{color:#18734b;font-size:10px;font-weight:700}.guidance{margin-top:18px;padding:16px 18px;color:var(--muted);font-size:11px;line-height:1.6}.guidance strong{color:var(--navy)}@media(max-width:850px){.options{grid-template-columns:1fr}.editor{grid-template-columns:1fr}.lock-note{max-width:none}.shell{margin:20px auto}.canvas{padding:24px 10px}}
+  </style>
+</head>
+<body>
+<main class="shell">
+  <p class="eyebrow">AUS Business School · Switzerland</p>
+  <h1>Choose the team signature</h1>
+  <p class="intro">Two AUS-branded options built with email-safe tables. Version 1 prioritizes mobile reliability; Version 2 offers a wider executive-banner treatment inspired by the reference, without turning the signature into one inaccessible image.</p>
+  <section class="card editor">
+    <div class="field"><label for="name">FULL NAME</label><input id="name" value="Abbass Mokashar" autocomplete="name"></div>
+    <div class="field"><label for="title">JOB TITLE</label><input id="title" value="Chief Information &amp; Technology Officer"></div>
+    <div class="lock-note">All AUS contact details, links, colors, icons, logo, and legal text are locked.</div>
+  </section>
+  <div class="options">
+    <section class="card option">
+      <header class="option-head"><div><h2>Version 1 · Compact</h2><p>Single-column structure that remains readable on narrow mobile screens.</p></div><span class="badge">Mobile-first</span></header>
+      <div class="canvas"><div id="signature1"></div></div>
+      <div class="actions"><button type="button" data-copy="1">Copy Version 1</button><span id="status1" class="status"></span></div>
+    </section>
+    <section class="card option">
+      <header class="option-head"><div><h2>Version 2 · Executive banner</h2><p>A wider institutional layout adapted from the reference for AUS.</p></div><span class="badge">Alternative</span></header>
+      <div class="canvas"><div id="signature2"></div></div>
+      <div class="actions"><button type="button" data-copy="2">Copy Version 2</button><span id="status2" class="status"></span></div>
+    </section>
+  </div>
+</main>
+<script>
+  const LOGO='https://wsrv.nl/?url=cdn.prod.website-files.com%2F6a3268e6b878fd22920cd747%2F6a558e03f97cbda4768f37bb_aus-logo.avif&amp;output=png&amp;w=700';
+  const ICON='https://img.icons8.com/ios-filled/50/be1f3d/';
+  const SOCIAL='https://img.icons8.com/ios-filled/50/ffffff/';
+  const esc=s=>String(s).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));
+  const person=()=>({name:esc(document.getElementById('name').value.trim()),title:esc(document.getElementById('title').value.trim())});
+  const contactIcon=(file,alt)=>`<td width="24" valign="middle" style="width:24px;padding:0 8px 7px 0;font-size:0;line-height:0;"><img src="${ICON}${file}" width="14" height="14" alt="${alt}" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>`;
+  const social=(url,file,alt)=>`<a href="${url}" target="_blank" aria-label="${alt}" style="text-decoration:none;"><span style="display:inline-block;width:24px;height:24px;border-radius:12px;background-color:#111827;text-align:center;font-size:0;line-height:0;"><img src="${SOCIAL}${file}" width="14" height="14" alt="${alt}" style="display:inline-block;width:14px;height:14px;margin-top:5px;border:0;outline:none;"></span></a>`;
+  const legal=`<div style="padding-top:9px;font-family:Arial,Helvetica,sans-serif;font-size:8px;line-height:12px;color:#85868a;">This email and any attachments may contain confidential information intended only for the named recipient. If received in error, please notify the sender and delete it.</div>`;
+
+  function version1(){const p=person();return `<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;max-width:460px;border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;border-left:4px solid #be1f3d;">
+    <tr><td bgcolor="#111827" style="padding:15px 17px;background-color:#111827;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;border-collapse:collapse;"><tr>
+        <td valign="middle" style="padding:0;"><a href="https://www.aus.swiss/" target="_blank" style="text-decoration:none;"><img src="${LOGO}" width="145" alt="AUS — American Institute of Applied Sciences in Switzerland" style="display:block;width:145px;max-width:100%;height:auto;border:0;outline:none;"></a></td>
+        <td valign="middle" align="right" style="padding:0 0 0 12px;font-family:Arial,Helvetica,sans-serif;font-size:8px;line-height:13px;letter-spacing:1px;text-transform:uppercase;color:#c8cbd1;">Swiss business education<br>Founded in 1991</td>
+      </tr></table>
+    </td></tr>
+    <tr><td style="padding:16px 17px 13px;background-color:#ffffff;font-family:Arial,Helvetica,sans-serif;">
+      <div style="font-size:20px;line-height:24px;font-weight:700;color:#111827;">${p.name}</div>
+      <div style="padding-top:3px;font-size:11px;line-height:16px;font-weight:700;color:#be1f3d;">${p.title}</div>
+      <div style="width:32px;height:2px;margin:11px 0;background-color:#be1f3d;font-size:0;line-height:0;">&nbsp;</div>
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;">
+        <tr>${contactIcon('new-post.png','Email')}<td style="padding:0 0 7px;font-size:11px;line-height:14px;"><a href="mailto:info@aus.swiss" style="color:#343438;text-decoration:none;">info@aus.swiss</a></td></tr>
+        <tr>${contactIcon('phone.png','Telephone')}<td style="padding:0 0 7px;font-size:11px;line-height:14px;"><a href="tel:+41219449501" style="color:#343438;text-decoration:none;">+41 21 944 95 01</a></td></tr>
+        <tr>${contactIcon('domain.png','Website')}<td style="padding:0 0 7px;font-size:11px;line-height:14px;"><a href="https://www.aus.swiss/" target="_blank" style="color:#343438;text-decoration:none;font-weight:700;">aus.swiss</a></td></tr>
+        <tr>${contactIcon('marker.png','Address')}<td style="padding:0 0 7px;font-size:10px;line-height:14px;color:#626368;">Chemin du Levant 5 · 1814 La Tour-de-Peilz, Switzerland</td></tr>
+      </table>
+      <div style="padding-top:3px;white-space:nowrap;">${social('https://www.linkedin.com/school/aus-swiss/','linkedin.png','LinkedIn')}&nbsp;&nbsp;${social('https://www.instagram.com/aus.swiss/','instagram-new--v1.png','Instagram')}</div>
+      ${legal}
+    </td></tr>
+  </table>`}
+
+  function version2(){const p=person();return `<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;max-width:580px;border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+    <tr><td bgcolor="#111827" style="padding:17px 18px;background-color:#111827;border-top:4px solid #be1f3d;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;border-collapse:collapse;"><tr>
+        <td width="165" valign="middle" style="width:165px;padding:0 17px 0 0;border-right:1px solid #374151;"><a href="https://www.aus.swiss/" target="_blank"><img src="${LOGO}" width="145" alt="AUS — American Institute of Applied Sciences in Switzerland" style="display:block;width:145px;max-width:100%;height:auto;border:0;"></a></td>
+        <td valign="middle" style="padding:0 0 0 18px;font-family:Arial,Helvetica,sans-serif;"><div style="font-size:19px;line-height:23px;font-weight:700;color:#ffffff;">${p.name}</div><div style="padding-top:4px;font-size:10px;line-height:15px;font-weight:700;color:#f06a82;">${p.title}</div></td>
+      </tr></table>
+    </td></tr>
+    <tr><td style="padding:13px 18px 10px;background-color:#f7f7f5;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;">
+        <tr><td width="50%" valign="top" style="width:50%;padding:0 12px 8px 0;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>${contactIcon('new-post.png','Email')}<td style="padding:0 0 7px;font-size:10px;line-height:14px;"><a href="mailto:info@aus.swiss" style="color:#343438;text-decoration:none;">info@aus.swiss</a></td></tr></table></td><td width="50%" valign="top" style="width:50%;padding:0 0 8px 0;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>${contactIcon('phone.png','Telephone')}<td style="padding:0 0 7px;font-size:10px;line-height:14px;"><a href="tel:+41219449501" style="color:#343438;text-decoration:none;">+41 21 944 95 01</a></td></tr></table></td></tr>
+        <tr><td width="50%" valign="top" style="width:50%;padding:0 12px 0 0;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>${contactIcon('domain.png','Website')}<td style="padding:0 0 7px;font-size:10px;line-height:14px;"><a href="https://www.aus.swiss/" style="color:#343438;text-decoration:none;font-weight:700;">aus.swiss</a></td></tr></table></td><td width="50%" valign="top" style="width:50%;padding:0;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>${contactIcon('marker.png','Address')}<td style="padding:0 0 7px;font-size:9px;line-height:13px;color:#626368;">Chemin du Levant 5<br>1814 La Tour-de-Peilz, Switzerland</td></tr></table></td></tr>
+      </table>
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;border-collapse:collapse;border-top:1px solid #deded9;"><tr><td style="padding-top:9px;font-family:Arial,Helvetica,sans-serif;font-size:8px;line-height:12px;color:#85868a;">American Institute of Applied Sciences in Switzerland</td><td align="right" style="padding-top:9px;white-space:nowrap;">${social('https://www.linkedin.com/school/aus-swiss/','linkedin.png','LinkedIn')}&nbsp;&nbsp;${social('https://www.instagram.com/aus.swiss/','instagram-new--v1.png','Instagram')}</td></tr></table>
+      ${legal}
+    </td></tr>
+  </table>`}
+
+  function render(){document.getElementById('signature1').innerHTML=version1();document.getElementById('signature2').innerHTML=version2();document.getElementById('status1').textContent='';document.getElementById('status2').textContent=''}
+  ['name','title'].forEach(id=>document.getElementById(id).addEventListener('input',render));
+  async function copyVersion(n){const h=n===1?version1():version2(),root=document.getElementById('signature'+n),status=document.getElementById('status'+n);try{if(window.ClipboardItem&&navigator.clipboard?.write){await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([h],{type:'text/html'}),'text/plain':new Blob([root.innerText],{type:'text/plain'})})])}else{throw new Error('fallback')}}catch(e){const r=document.createRange();r.selectNode(root);const s=window.getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy');s.removeAllRanges()}status.textContent='Copied — ready to paste.'}
+  document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>copyVersion(Number(b.dataset.copy))));render();
+</script>
+</body></html>
