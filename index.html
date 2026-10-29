@@ -14,13 +14,13 @@
 <main class="shell">
   <p class="eyebrow">AUS Business School · Switzerland</p>
   <h1>Choose the team signature</h1>
-  <p class="intro">Three AUS-branded options built with email-safe tables. Version 3 adds an optional employee portrait selected from the AUS team library or uploaded from the employee's device.</p>
+  <p class="intro">Four AUS-branded options built with email-safe tables. Versions 3 and 4 use an optional employee portrait selected from the AUS team library or uploaded from the employee's device.</p>
   <section class="card editor">
     <div class="field"><label for="name">FULL NAME</label><input id="name" value="Abbass Mokashar" autocomplete="name"></div>
     <div class="field"><label for="title">JOB TITLE</label><input id="title" value="Chief Information &amp; Technology Officer"></div>
     <div class="lock-note">All AUS contact details, links, colors, icons, logo, and legal text are locked.</div>
     <div class="photo-panel">
-      <label>OPTIONAL EMPLOYEE PHOTO · VERSION 3</label>
+      <label>OPTIONAL EMPLOYEE PHOTO · VERSIONS 3 &amp; 4</label>
       <div class="photo-tools"><button id="noPhoto" type="button">No photo</button><label class="upload-label">Upload own image<input id="photoUpload" type="file" accept="image/png,image/jpeg,image/webp"></label><span id="photoStatus" class="photo-note">Abbass Mokashar is selected.</span></div>
       <div id="photoGrid" class="photo-grid" aria-label="AUS employee media library"></div>
     </div>
@@ -41,6 +41,11 @@
       <div class="canvas"><div id="signature3"></div></div>
       <div class="actions"><button type="button" data-copy="3">Copy Version 3</button><span id="status3" class="status"></span></div>
     </section>
+    <section class="card option">
+      <header class="option-head"><div><h2>Version 4 · Profile card</h2><p>A refined split layout that gives the employee portrait more presence.</p></div><span class="badge">With photo</span></header>
+      <div class="canvas"><div id="signature4"></div></div>
+      <div class="actions"><button type="button" data-copy="4">Copy Version 4</button><span id="status4" class="status"></span></div>
+    </section>
   </div>
 </main>
 <script>
@@ -49,25 +54,24 @@
   const SOCIAL='https://img.icons8.com/ios-filled/50/ffffff/';
   const PHOTO_BASE='https://abbassmokashar.github.io/signatures/assets/team/';
   const TEAM_PHOTOS=[
-    {name:'Hakim El Omrani',file:'hakim-el-omrani.jpg'},
-    {name:'Fouad Khansa',file:'fouad-khansa.jpg'},
-    {name:'Dominic Szambowski',file:'dominic-szambowski.jpg'},
-    {name:'Connor Lamb',file:'connor-lamb.jpg'},
-    {name:'Paulo Pereira',file:'paulo-pereira.jpg'},
-    {name:'Anca Prisacariu',file:'anca-prisacariu.jpg'},
-    {name:'Jonathan Hilton',file:'jonathan-hilton.jpg'},
-    {name:'Abbass Mokashar',file:'abbass-mokashar.jpg'},
-    {name:'Nour El Yaafouri',file:'nour-el-yaafouri.jpg'},
-    {name:'Rayan Abdallah',file:'rayan-abdallah.jpg'},
-    {name:'Ivana Korolija',file:'ivana-korolija.jpg'},
-    {name:'Caitline Bengtsson',file:'caitline-bengtsson.jpg'},
-    {name:'Susanne Fournier',file:'susanne-fournier.jpg'}
+    {name:'Hakim El Omrani',file:'hakim-el-omrani.png'},
+    {name:'Fouad Khansa',file:'fouad-khansa.png'},
+    {name:'Dominic Szambowski',file:'dominic-szambowski.png'},
+    {name:'Connor Lamb',file:'connor-lamb.png'},
+    {name:'Paulo Pereira',file:'paulo-pereira.png'},
+    {name:'Anca Prisacariu',file:'anca-prisacariu.png'},
+    {name:'Abbass Mokashar',file:'abbass-mokashar.png'},
+    {name:'Rayan Abdallah',file:'rayan-abdallah.png'},
+    {name:'Ivana Korolija',file:'ivana-korolija.png'},
+    {name:'Caitline Bengtsson',file:'caitline-bengtsson.png'},
+    {name:'Susanne Fournier',file:'susanne-fournier.png'}
   ];
   let selectedPhoto=TEAM_PHOTOS.find(p=>p.name==='Abbass Mokashar');
   let customPhoto='';
   const esc=s=>String(s).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));
   const person=()=>({name:esc(document.getElementById('name').value.trim()),title:esc(document.getElementById('title').value.trim())});
   const contactIcon=(file,alt)=>`<td width="24" valign="middle" style="width:24px;padding:0 8px 7px 0;font-size:0;line-height:0;"><img src="${ICON}${file}" width="14" height="14" alt="${alt}" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>`;
+  const darkContactIcon=(file,alt)=>`<td width="23" valign="middle" style="width:23px;padding:0 7px 7px 0;font-size:0;line-height:0;"><img src="${SOCIAL}${file}" width="13" height="13" alt="${alt}" style="display:block;width:13px;height:13px;border:0;outline:none;"></td>`;
   const social=(url,file,alt)=>`<a href="${url}" target="_blank" aria-label="${alt}" style="text-decoration:none;"><span style="display:inline-block;width:24px;height:24px;border-radius:12px;background-color:#111827;text-align:center;font-size:0;line-height:0;"><img src="${SOCIAL}${file}" width="14" height="14" alt="${alt}" style="display:inline-block;width:14px;height:14px;margin-top:5px;border:0;outline:none;"></span></a>`;
   const legal=`<div style="padding-top:9px;font-family:Arial,Helvetica,sans-serif;font-size:8px;line-height:12px;color:#85868a;">This email and any attachments may contain confidential information intended only for the named recipient. If received in error, please notify the sender and delete it.</div>`;
 
@@ -122,12 +126,23 @@
     </td></tr>
   </table>`}
 
+  function version4(forCopy=false){const p=person(),src=photoSource(forCopy),photo=src?`<td width="132" valign="bottom" bgcolor="#f3f2ef" style="width:132px;padding:10px 10px 0;background-color:#f3f2ef;font-size:0;line-height:0;"><img src="${src}" width="112" height="140" alt="${p.name}" style="display:block;width:112px;height:140px;border:0;outline:none;"></td>`:'';return `<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;max-width:500px;border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;border-top:4px solid #be1f3d;border-right:1px solid #deded9;border-bottom:1px solid #deded9;border-left:1px solid #deded9;">
+    <tr>${photo}<td valign="middle" style="padding:17px 18px;background-color:#ffffff;font-family:Arial,Helvetica,sans-serif;"><a href="https://www.aus.swiss/" target="_blank" style="text-decoration:none;"><img src="${LOGO}" width="120" alt="AUS — American Institute of Applied Sciences in Switzerland" style="display:block;width:120px;max-width:100%;height:auto;border:0;outline:none;"></a><div style="padding-top:15px;font-size:21px;line-height:25px;font-weight:700;color:#111827;">${p.name}</div><div style="padding-top:4px;font-size:11px;line-height:16px;font-weight:700;color:#be1f3d;">${p.title}</div><div style="width:32px;height:2px;margin:11px 0 0;background-color:#be1f3d;font-size:0;line-height:0;">&nbsp;</div></td></tr>
+    <tr><td colspan="2" bgcolor="#111827" style="padding:13px 16px 10px;background-color:#111827;font-family:Arial,Helvetica,sans-serif;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;border-collapse:collapse;"><tr>
+        <td width="50%" valign="top" style="width:50%;padding:0 10px 0 0;"><table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr>${darkContactIcon('new-post.png','Email')}<td style="padding:0 0 7px;font-size:10px;line-height:14px;"><a href="mailto:info@aus.swiss" style="color:#ffffff;text-decoration:none;">info@aus.swiss</a></td></tr><tr>${darkContactIcon('phone.png','Telephone')}<td style="padding:0 0 7px;font-size:10px;line-height:14px;"><a href="tel:+41219449501" style="color:#ffffff;text-decoration:none;">+41 21 944 95 01</a></td></tr></table></td>
+        <td width="50%" valign="top" style="width:50%;padding:0;"><table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr>${darkContactIcon('domain.png','Website')}<td style="padding:0 0 7px;font-size:10px;line-height:14px;"><a href="https://www.aus.swiss/" target="_blank" style="color:#ffffff;text-decoration:none;font-weight:700;">aus.swiss</a></td></tr><tr>${darkContactIcon('marker.png','Address')}<td style="padding:0 0 7px;font-size:9px;line-height:13px;color:#d1d5db;">Chemin du Levant 5<br>1814 La Tour-de-Peilz, Switzerland</td></tr></table></td>
+      </tr></table>
+    </td></tr>
+    <tr><td colspan="2" style="padding:10px 16px 12px;background-color:#ffffff;font-family:Arial,Helvetica,sans-serif;"><table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;border-collapse:collapse;"><tr><td valign="middle" style="font-size:8px;line-height:12px;letter-spacing:.7px;text-transform:uppercase;color:#6d7078;">Swiss business education · Founded in 1991</td><td align="right" valign="middle" style="padding-left:10px;white-space:nowrap;">${social('https://www.linkedin.com/school/aus-swiss/','linkedin.png','LinkedIn')}&nbsp;&nbsp;${social('https://www.instagram.com/aus.swiss/','instagram-new--v1.png','Instagram')}</td></tr></table>${legal}</td></tr>
+  </table>`}
+
   function renderLibrary(){const grid=document.getElementById('photoGrid');grid.innerHTML=TEAM_PHOTOS.map(p=>`<button type="button" class="photo-choice ${!customPhoto&&selectedPhoto?.file===p.file?'active':''}" data-photo="${p.file}"><img src="assets/team/${p.file}" alt="${p.name}"><span>${p.name}</span></button>`).join('');grid.querySelectorAll('[data-photo]').forEach(button=>button.addEventListener('click',()=>{selectedPhoto=TEAM_PHOTOS.find(p=>p.file===button.dataset.photo);customPhoto='';document.getElementById('photoStatus').textContent=selectedPhoto.name+' is selected.';document.getElementById('noPhoto').classList.remove('active');renderLibrary();render()}))}
-  function render(){document.getElementById('signature1').innerHTML=version1();document.getElementById('signature2').innerHTML=version2();document.getElementById('signature3').innerHTML=version3();for(let n=1;n<=3;n++)document.getElementById('status'+n).textContent=''}
+  function render(){document.getElementById('signature1').innerHTML=version1();document.getElementById('signature2').innerHTML=version2();document.getElementById('signature3').innerHTML=version3();document.getElementById('signature4').innerHTML=version4();for(let n=1;n<=4;n++)document.getElementById('status'+n).textContent=''}
   ['name','title'].forEach(id=>document.getElementById(id).addEventListener('input',render));
-  async function copyVersion(n){const h=n===1?version1():n===2?version2():version3(true),root=document.getElementById('signature'+n),status=document.getElementById('status'+n);try{if(window.ClipboardItem&&navigator.clipboard?.write){await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([h],{type:'text/html'}),'text/plain':new Blob([root.innerText],{type:'text/plain'})})])}else{throw new Error('fallback')}}catch(e){const r=document.createRange();r.selectNode(root);const s=window.getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy');s.removeAllRanges()}status.textContent='Copied — ready to paste.'}
-  document.getElementById('noPhoto').addEventListener('click',()=>{selectedPhoto=null;customPhoto='';document.getElementById('noPhoto').classList.add('active');document.getElementById('photoStatus').textContent='Photo removed from Version 3.';renderLibrary();render()});
-  document.getElementById('photoUpload').addEventListener('change',event=>{const file=event.target.files?.[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{const image=new Image();image.onload=()=>{const canvas=document.createElement('canvas');canvas.width=320;canvas.height=400;const ctx=canvas.getContext('2d'),scale=Math.max(320/image.width,400/image.height),w=image.width*scale,h=image.height*scale;ctx.drawImage(image,(320-w)/2,(400-h)*.35,w,h);customPhoto=canvas.toDataURL('image/jpeg',.88);selectedPhoto=null;document.getElementById('noPhoto').classList.remove('active');document.getElementById('photoStatus').textContent='Custom image selected. Test it in your mail client.';renderLibrary();render()};image.src=reader.result};reader.readAsDataURL(file)});
+  async function copyVersion(n){const h=n===1?version1():n===2?version2():n===3?version3(true):version4(true),root=document.getElementById('signature'+n),status=document.getElementById('status'+n);try{if(window.ClipboardItem&&navigator.clipboard?.write){await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([h],{type:'text/html'}),'text/plain':new Blob([root.innerText],{type:'text/plain'})})])}else{throw new Error('fallback')}}catch(e){const r=document.createRange();r.selectNode(root);const s=window.getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy');s.removeAllRanges()}status.textContent='Copied — ready to paste.'}
+  document.getElementById('noPhoto').addEventListener('click',()=>{selectedPhoto=null;customPhoto='';document.getElementById('noPhoto').classList.add('active');document.getElementById('photoStatus').textContent='Photo removed from Versions 3 and 4.';renderLibrary();render()});
+  document.getElementById('photoUpload').addEventListener('change',event=>{const file=event.target.files?.[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{const image=new Image();image.onload=()=>{const canvas=document.createElement('canvas');canvas.width=320;canvas.height=400;const ctx=canvas.getContext('2d'),scale=Math.max(320/image.width,400/image.height),w=image.width*scale,h=image.height*scale;ctx.clearRect(0,0,320,400);ctx.drawImage(image,(320-w)/2,(400-h)*.35,w,h);customPhoto=canvas.toDataURL('image/png');selectedPhoto=null;document.getElementById('noPhoto').classList.remove('active');document.getElementById('photoStatus').textContent='Custom image selected. A transparent PNG works best.';renderLibrary();render()};image.src=reader.result};reader.readAsDataURL(file)});
   document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>copyVersion(Number(b.dataset.copy))));renderLibrary();render();
 </script>
 </body></html>

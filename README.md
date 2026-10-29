@@ -1,12 +1,13 @@
 # AUS email signature
 
-Open `index.html` in a browser. Enter only the team member's full name and job title, compare the three versions, then copy the selected version into the mail account's signature settings. All AUS contact information and brand elements are locked for consistency.
+Open `index.html` in a browser. Enter only the team member's full name and job title, compare the four versions, then copy the selected version into the mail account's signature settings. All AUS contact information and brand elements are locked for consistency.
 
 - **Version 1 — Compact:** the recommended mobile-first option.
 - **Version 2 — Executive banner:** a wider AUS alternative inspired by the supplied institutional example.
 - **Version 3 — Portrait:** a people-focused option with an optional employee headshot.
+- **Version 4 — Profile card:** a split profile layout that gives the employee portrait more presence.
 
-Version 3 includes an optimized media library of the 13 portraits published on the AUS “Meet Our People” page. Abbass Mokashar is selected in the example. Users can choose another team member, remove the portrait, or upload their own image.
+Versions 3 and 4 share an optimized media library of 11 transparent-background AUS team portraits. Abbass Mokashar is selected in the example. Users can choose another team member, remove the portrait, or upload their own image. A transparent PNG is recommended for custom uploads.
 
 The folder also includes `abbass-mokashar-signature.html`, a finished standalone example based on the details in the previous signature.
 
