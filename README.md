@@ -5,7 +5,7 @@ Open `index.html` in a browser. Enter only the team member's full name and job t
 - **Version 1 — Compact:** the recommended mobile-first option.
 - **Version 2 — Executive banner:** a wider AUS alternative inspired by the supplied institutional example.
 - **Version 3 — Portrait:** a people-focused option with an optional employee headshot.
-- **Version 4 — Profile card:** a split profile layout that gives the employee portrait more presence.
+- **Version 4 — Executive portrait:** a balanced institutional layout with a compact, professionally framed portrait and a navy logo header.
 
 Versions 3 and 4 share an optimized media library of 11 transparent-background AUS team portraits. Abbass Mokashar is selected in the example. Users can choose another team member, remove the portrait, or upload their own image. A transparent PNG is recommended for custom uploads.
 
