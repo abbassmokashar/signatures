@@ -22,7 +22,7 @@ The folder also includes `abbass-mokashar-signature.html`, a finished standalone
 - Fixed-size PNG icons in zero-line-height table cells to reduce Gmail/Outlook spacing differences
 - No JavaScript, SVG, CSS grid/flex, background images, or icon fonts inside the copied signature
 - Hosted team-library photos are preferred for consistent delivery; a custom upload is embedded and should be verified with a test email
-- Automatic upload processing uses `@imgly/background-removal` 1.7.0 in the browser; the first upload downloads and caches its processing model and may take longer
+- Automatic upload processing uses `@imgly/background-removal` 1.7.0 in the browser; its small processing model now preloads in the background as soon as the page becomes idle and is cached for later visits
 - Clickable email, phone, website, LinkedIn, and Instagram links
 - 600 px maximum width for desktop and mobile email panes
 
