@@ -7,7 +7,7 @@ Open `index.html` in a browser. Enter only the team member's full name and job t
 - **Version 3 — Portrait:** a people-focused option with an optional employee headshot.
 - **Version 4 — Executive portrait:** a balanced institutional layout with a compact, professionally framed portrait and a navy logo header.
 
-Versions 3 and 4 share an optimized media library of 11 transparent-background AUS team portraits. Abbass Mokashar is selected in the example. Users can choose another team member, remove the portrait, or upload their own image. A transparent PNG is recommended for custom uploads.
+Versions 3 and 4 share an optimized media library of 11 transparent-background AUS team portraits. Abbass Mokashar is selected in the example. Users can choose another team member, remove the portrait, or upload their own image. Uploaded JPG, PNG, and WebP files are processed locally in the browser: the background is removed and the portrait is trimmed and resized to the same 320 × 400 transparent PNG format as the library.
 
 The folder also includes `abbass-mokashar-signature.html`, a finished standalone example based on the details in the previous signature.
 
@@ -22,6 +22,7 @@ The folder also includes `abbass-mokashar-signature.html`, a finished standalone
 - Fixed-size PNG icons in zero-line-height table cells to reduce Gmail/Outlook spacing differences
 - No JavaScript, SVG, CSS grid/flex, background images, or icon fonts inside the copied signature
 - Hosted team-library photos are preferred for consistent delivery; a custom upload is embedded and should be verified with a test email
+- Automatic upload processing uses `@imgly/background-removal` 1.7.0 in the browser; the first upload downloads and caches its processing model and may take longer
 - Clickable email, phone, website, LinkedIn, and Instagram links
 - 600 px maximum width for desktop and mobile email panes
 
