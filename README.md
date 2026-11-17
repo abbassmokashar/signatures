@@ -1,13 +1,15 @@
 # AUS email signature
 
-Open `index.html` in a browser. Enter only the team member's full name and job title, compare the four versions, then copy the selected version into the mail account's signature settings. All AUS contact information and brand elements are locked for consistency.
+Open `index.html` in a browser. Enter only the team member's full name and job title, compare the six versions, then copy the selected version into the mail account's signature settings. All AUS contact information and brand elements are locked for consistency.
 
 - **Version 1 — Compact:** the recommended mobile-first option.
 - **Version 2 — Executive banner:** a wider AUS alternative inspired by the supplied institutional example.
 - **Version 3 — Portrait:** a people-focused option with an optional employee headshot.
 - **Version 4 — Executive portrait:** a balanced institutional layout with a compact, professionally framed portrait and a navy logo header.
+- **Version 5 — Ranking footer:** a fluid full-width design without an employee portrait, featuring both 2026 QS Business Masters ranking badges.
+- **Version 6 — Ranking portrait:** a fluid full-width design combining the selected employee portrait with both 2026 QS ranking badges.
 
-Versions 3 and 4 share an optimized media library of 11 transparent-background AUS team portraits. Abbass Mokashar is selected in the example. Users can choose another team member, remove the portrait, or upload their own image. Uploaded JPG, PNG, and WebP files are processed locally in the browser: the background is removed and the portrait is trimmed and resized to the same 320 × 400 transparent PNG format as the library.
+Versions 3, 4, and 6 share an optimized media library of 11 transparent-background AUS team portraits. Abbass Mokashar is selected in the example. Users can choose another team member, remove the portrait, or upload their own image. Uploaded JPG, PNG, and WebP files are processed locally in the browser: the background is removed and the portrait is trimmed and resized to the same 320 × 400 transparent PNG format as the library.
 
 The folder also includes `abbass-mokashar-signature.html`, a finished standalone example based on the details in the previous signature.
 
@@ -23,8 +25,9 @@ The folder also includes `abbass-mokashar-signature.html`, a finished standalone
 - No JavaScript, SVG, CSS grid/flex, background images, or icon fonts inside the copied signature
 - Hosted team-library photos are preferred for consistent delivery; a custom upload is embedded and should be verified with a test email
 - Automatic upload processing uses `@imgly/background-removal` 1.7.0 in the browser; its small processing model now preloads in the background as soon as the page becomes idle and is cached for later visits
+- Versions 5 and 6 use a 100% fluid table width so the footer fills the available desktop or mobile email pane
+- Both supplied 2026 QS Business Masters ranking badges are hosted as PNG assets and included in Versions 5 and 6
 - Clickable email, phone, website, LinkedIn, and Instagram links
-- 600 px maximum width for desktop and mobile email panes
 
 ## Gmail
 
