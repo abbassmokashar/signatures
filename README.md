@@ -26,7 +26,7 @@ The folder also includes `abbass-mokashar-signature.html`, a finished standalone
 - Hosted team-library photos are preferred for consistent delivery; a custom upload is embedded and should be verified with a test email
 - Automatic upload processing uses `@imgly/background-removal` 1.7.0 in the browser; its small processing model now preloads in the background as soon as the page becomes idle and is cached for later visits
 - Versions 5 and 6 use a 100% fluid table width so the footer fills the available desktop or mobile email pane
-- Both supplied 2026 QS Business Masters ranking badges are hosted as PNG assets and included in Versions 5 and 6
+- Both supplied 2026 QS Business Masters ranking badges are included in Versions 5 and 6; copied signatures use the official AUS Webflow CDN image URLs, with local PNG copies retained for offline preview
 - Clickable email, phone, website, LinkedIn, and Instagram links
 
 ## Gmail

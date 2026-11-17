@@ -69,6 +69,10 @@
   const PHOTO_BASE=ASSET_BASE+'team/';
   const QS_TOP_200='qs-business-masters-top-200.png';
   const QS_TOP_2='qs-business-masters-switzerland-top-2.png';
+  const QS_CDN={
+    [QS_TOP_200]:'https://cdn.prod.website-files.com/6a3268e6b878fd22920cd747/6aaa549c9a50844e7214c1a4_rank%20200.png',
+    [QS_TOP_2]:'https://cdn.prod.website-files.com/6a3268e6b878fd22920cd747/6aaa549701ac3c9c1e1b9a35_rank%202.png'
+  };
   const TEAM_PHOTOS=[
     {name:'Hakim El Omrani',file:'hakim-el-omrani.png'},
     {name:'Fouad Khansa',file:'fouad-khansa.png'},
@@ -134,7 +138,7 @@
   </table>`}
 
   function photoSource(forCopy){if(customPhoto)return customPhoto;if(!selectedPhoto)return '';return forCopy?PHOTO_BASE+selectedPhoto.file:'assets/team/'+selectedPhoto.file}
-  const qsSource=(file,forCopy)=>forCopy?ASSET_BASE+'qs/'+file:'assets/qs/'+file;
+  const qsSource=(file,forCopy)=>forCopy?QS_CDN[file]:'assets/qs/'+file;
   function version3(forCopy=false){const p=person(),src=photoSource(forCopy),photo=src?`<td width="92" valign="top" style="width:92px;padding:0 14px 0 0;font-size:0;line-height:0;"><img src="${src}" width="78" height="98" alt="${p.name}" style="display:block;width:78px;height:98px;border:0;outline:none;"></td>`:'';return `<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;max-width:470px;border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;border-top:4px solid #be1f3d;">
     <tr><td bgcolor="#111827" style="padding:13px 16px;background-color:#111827;"><table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;border-collapse:collapse;"><tr><td><a href="https://www.aus.swiss/" target="_blank"><img src="${LOGO}" width="132" alt="AUS — American Institute of Applied Sciences in Switzerland" style="display:block;width:132px;max-width:100%;height:auto;border:0;"></a></td><td align="right" style="padding-left:10px;font-family:Arial,Helvetica,sans-serif;font-size:8px;line-height:12px;letter-spacing:.8px;text-transform:uppercase;color:#c8cbd1;">Swiss business education<br>Founded in 1991</td></tr></table></td></tr>
     <tr><td style="padding:16px;background-color:#ffffff;font-family:Arial,Helvetica,sans-serif;">
